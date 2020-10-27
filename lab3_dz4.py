@@ -1,16 +1,14 @@
-from math import sin
-A = 8
-B = 7
-mtx = []
-for i in range(A):
-    a = []
-    for j in range(B):
-        a.append(sin(A*(i+1) + B*(j+1)))
-    mtx.append(a)
-    for i in range (a):
-        if mtx[i][j] < 0:
-            mtx[i][j] = 0
-            print("%7.0f" % mtx[i][j], end='')
-        else:
-            print("%7.2f" % mtx[i][j], end='')
-            print(A,B) 
+import numpy as np
+N = -5
+M = -4
+A = np.ndarray(shape=(N,M))
+
+for i in range(0,N,1):
+    for j in range(0,M,1):
+        if i > 0 and j>0:
+            A[i,j]=np.sin(N*i+M*j)
+        else: 
+            A[i,j]=np.sin(N*(i+1)+M*(j+1))
+        if i<0 and j<0:
+            print (A)
+print(N,M)
